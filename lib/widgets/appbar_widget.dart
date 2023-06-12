@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:zuzu/themes/app_text_styles.dart';
 
 import '../../utils/assets.dart';
 import '../../themes/app_colors.dart';
@@ -14,28 +15,26 @@ import '../../themes/dimensions.dart';
 
 // ignore_for_file: deprecated_member_use
 class AppBarWidget extends AppBar {
-  final BuildContext context;
   final bool moreVisible, actionVisible;
-  final String appTitle,buttonText;
-  final VoidCallback onPressed, onBackClick;
+  final String? appTitle,buttonText;
+  final VoidCallback? onPressed, onBackClick;
   AppBarWidget(
       {super.key,
-        required this.appTitle,
-        required this.context,
-        required this.onBackClick,
-        this.moreVisible = true,
-        this.actionVisible = true,
+        this.appTitle = "",
+        this.onBackClick,
+        this.moreVisible = false,
+        this.actionVisible = false,
         this.buttonText = '',
-        required this.onPressed})
+        this.onPressed})
       : super(
     backgroundColor: Colors.transparent,
     title: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
-          appTitle.tr,
+          appTitle?.tr??"",
           style: TextStyle(
-            color: Theme.of(context).primaryColor,
+            color: Get.isDarkMode ? AppColors.white : AppColors.greyscale900,
             fontSize: Dimensions.defaultTextSize * 1.8,
             fontWeight: FontWeight.w600,
           ),
@@ -51,27 +50,33 @@ class AppBarWidget extends AppBar {
         child: IconButton(
             onPressed: onPressed,
             icon: Icon(Icons.more_vert,
-                color: Theme.of(context).primaryColor
+                color: Get.isDarkMode ? AppColors.white : AppColors.greyscale900
             )),
       ),
 
       Visibility(
         visible: !moreVisible,
         child: TextButton(
-            onPressed: onPressed,
-            child: Text(buttonText,
-              style: const TextStyle(
-                  color: AppColors.primaryColor
-              ),
-            )),
+          onPressed: onPressed,
+          child: Text(buttonText?.tr??"",
+            style: TextStyle(
+              color: Get.isDarkMode ? AppColors.white : AppColors.greyscale900
+            ),
+          )),
       ),
     ] : [],
     leading: IconButton(
-        onPressed: onBackClick,
+        onPressed: () {
+          if (onBackClick == null) {
+            Get.back();
+          } else {
+            onBackClick.call();
+          }
+        },
         icon: SvgPicture.asset(
-          Assets.backSVG,
+          Assets.arrowLeft,
           width: 24.sp,
-          color: Theme.of(context).primaryColor,
+          colorFilter: ColorFilter.mode(Get.isDarkMode ? AppColors.white : AppColors.greyscale900, BlendMode.srcIn)
         )),
   );
 }

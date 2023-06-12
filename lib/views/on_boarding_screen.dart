@@ -42,9 +42,9 @@ class OnBoardingScreen extends StatelessWidget {
                   activeIndex: controller.currentPage.value,
                   count: controller.pages.length,
                   effect: ExpandingDotsEffect(
-                    dotWidth: 10.sp,
-                    dotHeight: 10.sp,
-                    radius: 16.sp,
+                    dotWidth: 6.sp,
+                    dotHeight: 6.sp,
+                    radius: 12.sp,
                     activeDotColor: Theme.of(context).primaryColor,
                     dotColor: Theme.of(context).indicatorColor,
                   ),
@@ -56,12 +56,7 @@ class OnBoardingScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(25.0),
                   child: Button(
                     onClick: controller.buttonClick,
-                    child: Text(
-                      controller.currentPage.value == 2 ? Strings.getStarted.tr : Strings.next.tr,
-                      style: const TextStyle(
-                          color: AppColors.white
-                      ),
-                    ),
+                    text: controller.currentPage.value == 2 ? Strings.getStarted.tr : Strings.next.tr,
                   ),
                 ),
               ),

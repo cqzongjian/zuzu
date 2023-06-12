@@ -16,4 +16,15 @@ class English {
   static const String continueWithFacebook = "Continue with Facebook";
   static const String continueWithGoogle = "Continue with Google";
   static const String continueWithApple = "Continue with Apple";
+  static const String signInWithPassword = "Sign in with password";
+  static const String dontHaveAnAccount = "Don’t have an account?";
+  static const String signUp = "Sign up";
+  static const String createYourAccount = "Create your Account";
+  static const String loginToYourAccount = "Login to your Account";
+  static const String email = "Email";
+  static const String password = "Password";
+  static const String rememberMe = "Remember me";
+  static const String orContinueWith = "or continue with";
+  static const String alreadyHaveAnAccount = "Already have an account?";
+  static const String forgotThePassword = "Forgot the password?";
 }

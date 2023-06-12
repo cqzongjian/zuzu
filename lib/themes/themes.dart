@@ -15,7 +15,7 @@ class Themes {
 
   _saveThemeToBox(bool isDarkMode) => _box.write(_key, isDarkMode);
 
-  bool _loadThemeFromBox() => _box.read(_key) ?? false;
+  bool _loadThemeFromBox() => _box.read(_key) ?? true;
 
   ThemeMode get theme => _loadThemeFromBox() ? ThemeMode.dark : ThemeMode.light;
 
@@ -31,7 +31,11 @@ class Themes {
     indicatorColor: AppColors.greyscale300,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primaryColor,
-      background: AppColors.white
+      background: AppColors.white,
+      secondary: AppColors.secondaryColor,
+      onPrimary: AppColors.greyscale900,
+      primaryContainer: AppColors.white,
+      onSecondary: AppColors.greyscale200
     ),
     // cardColor: CustomColor.secondaryColor,
 
@@ -54,8 +58,12 @@ class Themes {
     scaffoldBackgroundColor: AppColors.dark1,
     indicatorColor: AppColors.dark3,
     colorScheme: ColorScheme.fromSeed(
-        seedColor: AppColors.primaryColor,
-        background: AppColors.dark1
+      seedColor: AppColors.primaryColor,
+      background: AppColors.dark1,
+      secondary: AppColors.secondaryColor,
+      onPrimary: AppColors.white,
+      primaryContainer: AppColors.dark2,
+      onSecondary: AppColors.dark3
     ),
     // cardColor: CustomColor.accentColor,
 
@@ -68,7 +76,7 @@ class Themes {
     ),
     textTheme: ThemeData.dark().textTheme.apply(
       bodyColor: AppColors.white,
-      fontFamily: GoogleFonts.inter().fontFamily,
+      fontFamily: GoogleFonts.urbanist().fontFamily,
     ),
   );
 }

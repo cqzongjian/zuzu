@@ -40,6 +40,8 @@ flutter:
     - assets/logo/
     - assets/on_boarding_images/
     - assets/icons/
+    - assets/icons/Bold/
+    - assets/icons/Light-Outline/
     - assets/images/
   uses-material-design: true
 

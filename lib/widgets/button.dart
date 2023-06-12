@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:zuzu/themes/app_colors.dart';
+import 'package:zuzu/themes/app_text_styles.dart';
 import 'package:zuzu/themes/dimensions.dart';
 
 class Button extends StatelessWidget {
-  final Widget child;
+  final String text;
   final VoidCallback onClick;
 
-  const Button({super.key, required this.child, required this.onClick});
+  const Button({super.key, required this.text, required this.onClick});
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +16,15 @@ class Button extends StatelessWidget {
       height: 50,
       child: Material(
         color: AppColors.primaryColor,
-          borderRadius: BorderRadius.circular(Dimensions.radius),
-          child: InkWell(
-            onTap: onClick,
-            child: Center(
-              child: child,
-            )),
+        borderRadius: BorderRadius.circular(Dimensions.radius),
+        child: InkWell(
+          onTap: onClick,
+          child: Center(
+            child: Text(
+              text,
+              style: AppTextStyles.bodyLargeBold,
+            ),
+          )),
       ),
     );
   }
