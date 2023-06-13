@@ -33,17 +33,16 @@ class AppBarWidget extends AppBar {
       children: [
         Text(
           appTitle?.tr??"",
-          style: TextStyle(
+          style: AppTextStyles.heading4?.copyWith(
+            fontWeight: FontWeight.w700,
             color: Get.isDarkMode ? AppColors.white : AppColors.greyscale900,
-            fontSize: Dimensions.defaultTextSize * 1.8,
-            fontWeight: FontWeight.w600,
           ),
         ),
       ],
     ),
     elevation: 0,
     automaticallyImplyLeading: false,
-    centerTitle: true,
+    centerTitle: false,
     actions: actionVisible ? [
       Visibility(
         visible: moreVisible,

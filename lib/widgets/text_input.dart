@@ -15,12 +15,14 @@ class TextInput extends StatelessWidget {
   final TextEditingController controller;
   final String hint;
   final String icon;
+  final bool? obscureText;
 
   const TextInput({
     super.key,
     required this.controller,
     required this.hint,
-    required this.icon
+    required this.icon,
+    this.obscureText,
   });
 
   @override
@@ -35,6 +37,7 @@ class TextInput extends StatelessWidget {
         style: AppTextStyles.bodyMediumSemiBold?.copyWith(
           color: Get.isDarkMode ? AppColors.white : AppColors.greyscale900,
         ),
+        obscureText: obscureText??false,
         decoration: InputDecoration(
           border: InputBorder.none,
           hintText: hint,

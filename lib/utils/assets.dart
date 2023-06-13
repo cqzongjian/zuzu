@@ -17,7 +17,14 @@ class Assets {
   static const String apple = 'assets/icons/apple.svg';
 
   static const String arrowLeft = 'assets/icons/Light-Outline/Arrow - Left.svg';
+  static const String chat = 'assets/icons/Bold/Chat.svg';
+  static const String createNewPassword = 'assets/images/Create New Password.svg';
+  static const String createUser = 'assets/images/create_user.svg';
+  static const String createPassword = 'assets/images/create_password.svg';
+  static const String like = 'assets/images/like.svg';
 
   static const String message = 'assets/icons/Bold/Message.svg';
   static const String lock = 'assets/icons/Bold/Lock.svg';
+  static const String forget = 'assets/images/forget.svg';
+
 }

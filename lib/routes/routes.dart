@@ -9,5 +9,7 @@ class Routes {
   static const String letsInScreen= '/letsInScreen';
   static const String signUpScreen= '/signUpScreen';
   static const String signInScreen= '/signInScreen';
-  static const String loginScreen= '/loginScreen';
+  static const String selectMethodsScreen= '/selectMethodsScreen';
+  static const String typeOTPScreen= '/typeOTPScreen';
+  static const String createPasswordScreen= '/createPasswordScreen';
 }

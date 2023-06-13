@@ -20,6 +20,7 @@ class Chinese {
   static const String signInWithPassword = "使用密码登录";
   static const String dontHaveAnAccount = "没有帐户？";
   static const String signUp = "登录";
+  static const String signIn = "注册";
   static const String createYourAccount = "Create your Account";
   static const String loginToYourAccount = "Login to your Account";
   static const String email = "Email";
@@ -28,5 +29,18 @@ class Chinese {
   static const String orContinueWith = "or continue with";
   static const String alreadyHaveAnAccount = "Already have an account?";
   static const String forgotThePassword = "Forgot the password?";
+  static const String selectResetMethods = "Select which contact details should we use to reset your password";
+  static const String continueStr = "Continue";
+  static const String viaSMS = "via SMS:";
+  static const String viaEmail = "via Email:";
+  static const String forgotPassword = "忘记密码";
+  static const String codeHasBeenSendTo = "Code has been send to";
+  static const String resendCodeIn = "Resend code in";
+  static const String verify = "Verify";
+  static const String createNewPassword = "Create New Password";
+  static const String createYourNewPassword = "Create Your New Password";
+  static const String congratulations = "Congratulations!";
+  static const String yourAccountIsReadyToUse = "Your account is ready to use. You will be redirected to the Home page in a few seconds..";
+
 
 }

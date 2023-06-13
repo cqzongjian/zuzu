@@ -13,6 +13,10 @@ import '../views/login/login_screen.dart';
 import '../views/lets_in/lets_in_screen.dart';
 import '../views/lets_in/sign_in_screen.dart';
 import '../views/lets_in/sign_up_screen.dart';
+import '../views/reset_password/select_methods_screen.dart';
+import '../views/reset_password/type_otp_screen.dart';
+import '../views/reset_password/create_password_screen.dart';
+import '../views/reset_password/reset_successful_screen.dart';
 
 class Pages {
   static var list = [
@@ -38,8 +42,16 @@ class Pages {
       page: () => SignUpScreen(),
     ),
     GetPage(
-      name: Routes.loginScreen,
-      page: () => const LoginScreen(),
+      name: Routes.selectMethodsScreen,
+      page: () => SelectMethodsScreen(),
+    ),
+    GetPage(
+      name: Routes.typeOTPScreen,
+      page: () => TypeOTPScreen(),
+    ),
+    GetPage(
+      name: Routes.createPasswordScreen,
+      page: () => CreatePasswordScreen(),
     ),
   ];
 }

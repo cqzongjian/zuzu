@@ -34,8 +34,9 @@ class SignUpScreen extends StatelessWidget {
       body: Padding(
           padding: EdgeInsets.all(Dimensions.defaultPaddingSize),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              SizedBox(height: 30.h,),
               Text(Strings.createYourAccount.tr, style: AppTextStyles.heading1,),
 
               SizedBox(height: 30.h,),
@@ -50,6 +51,15 @@ class SignUpScreen extends StatelessWidget {
                 hint: Strings.password.tr,
                 icon: Assets.lock
               ),
+
+              SizedBox(height: 20.h,),
+              Button(
+                onClick: () => Get.toNamed(Routes.signInScreen),
+                text: Strings.signUp.tr,
+              ),
+
+              SizedBox(height: 20.h,),
+              LoginDivider(text: Strings.orContinueWith.tr),
 
               SizedBox(height: 20.h,),
               Row(
@@ -80,15 +90,6 @@ class SignUpScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 20.h,),
-              LoginDivider(text: Strings.orContinueWith.tr),
-
-              SizedBox(height: 20.h,),
-              Button(
-                onClick: () => Get.toNamed(Routes.signInScreen),
-                text: Strings.signInWithPassword.tr,
-              ),
-
-              SizedBox(height: 20.h,),
               RichText(
                 text: TextSpan(children: [
                   TextSpan(
@@ -96,12 +97,12 @@ class SignUpScreen extends StatelessWidget {
                       style: AppTextStyles.bodyMediumRegular
                   ),
                   TextSpan(
-                    text: '  ${Strings.signUp.tr}',
+                    text: '  ${Strings.signIn.tr}',
                     style: AppTextStyles.bodyMediumSemiBold?.copyWith(
                         color: AppColors.primaryColor
                     ),
                     recognizer: TapGestureRecognizer()
-                      ..onTap = () => Get.toNamed(Routes.signUpScreen),
+                      ..onTap = () => Get.toNamed(Routes.signInScreen),
                   ),
                 ]),
               ),
