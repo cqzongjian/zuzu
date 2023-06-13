@@ -16,7 +16,6 @@ import '../views/lets_in/sign_up_screen.dart';
 import '../views/reset_password/select_methods_screen.dart';
 import '../views/reset_password/type_otp_screen.dart';
 import '../views/reset_password/create_password_screen.dart';
-import '../views/reset_password/reset_successful_screen.dart';
 
 class Pages {
   static var list = [
