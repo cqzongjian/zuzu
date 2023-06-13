@@ -9,13 +9,13 @@ import 'routes.dart';
 import '../binding/splash_binding.dart';
 import '../views/splash_screen.dart';
 import '../views/on_boarding_screen.dart';
-import '../views/login/login_screen.dart';
 import '../views/lets_in/lets_in_screen.dart';
 import '../views/lets_in/sign_in_screen.dart';
 import '../views/lets_in/sign_up_screen.dart';
 import '../views/reset_password/select_methods_screen.dart';
 import '../views/reset_password/type_otp_screen.dart';
 import '../views/reset_password/create_password_screen.dart';
+import '../views/home/home_screen.dart';
 
 class Pages {
   static var list = [
@@ -51,6 +51,10 @@ class Pages {
     GetPage(
       name: Routes.createPasswordScreen,
       page: () => CreatePasswordScreen(),
+    ),
+    GetPage(
+      name: Routes.homeScreen,
+      page: () => HomeScreen(),
     ),
   ];
 }
