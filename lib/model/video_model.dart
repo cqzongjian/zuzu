@@ -39,12 +39,11 @@ class VideoData {
   VideoData({
     required this.id,
     required this.like,
-    required this.likeNumStr,
-    required this.shareNumStr,
+    required this.likeNum,
+    required this.shareNum,
     required this.thumb,
     required this.title,
     required this.videoUrl,
-    required this.likeNum,
     required this.collect,
     required this.collectNum,
   });
@@ -52,8 +51,7 @@ class VideoData {
   final int id;
   bool like;
   int likeNum;
-  final String likeNumStr;
-  final String shareNumStr;
+  final int shareNum;
   final String thumb;
   final String title;
   final String videoUrl;
@@ -64,13 +62,12 @@ class VideoData {
   factory VideoData.fromJson(Map<String, dynamic> json) => VideoData(
     id: json["id"],
     like: json["like"],
-    likeNumStr: json["likeNumStr"],
-    shareNumStr: json["shareNumStr"],
+    likeNum: json["likeNum"],
+    shareNum: json["shareNum"],
     thumb: json["thumb"],
     title: json["title"],
     videoUrl: json["videoUrl"],
-    likeNum: json["likeNum"],
     collect: json["collect"],
-    collectNum: json["collectNum"],
+    collectNum: json["collectNum"] ?? 0,
   );
 }

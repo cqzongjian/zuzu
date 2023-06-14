@@ -8,15 +8,34 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+import 'package:zuzu/controller/base/app_getx_controller.dart';
+import 'package:zuzu/http/index.dart';
 import 'package:zuzu/mixins/app_video_mixin.dart';
 import 'package:zuzu/model/on_boarding_model.dart';
 import 'package:zuzu/model/video_model.dart';
 import 'package:zuzu/routes/routes.dart';
 import 'package:zuzu/utils/assets.dart';
 import 'package:zuzu/utils/strings.dart';
+import 'package:zuzu/widgets/app_load.dart';
+import 'package:zuzu/widgets/app_report.dart';
+import 'package:zuzu/widgets/app_tag.dart';
 import 'package:zuzu/widgets/on_boarding_widget.dart';
+import 'package:zuzu/widgets/video_scaffold.dart';
 
-class HomeController extends GetxController with AppVideoControllerMixin, WidgetsBindingObserver  {
+class HomeController extends AppGetxController with AppVideoControllerMixin, WidgetsBindingObserver  {
+
+  static HomeController get to => Get.find<HomeController>(tag: AppTag.tag);
+
+  VideoScaffoldController vsCtrl = VideoScaffoldController();
+
+  static const int updateList = 1;
+  static const int updateIconAd = 2;
+  static const int updatePageIndex = 3;
+  static const int updateTopBar = 4;
+
+  List<String> topBarList = [Strings.following, Strings.friends, Strings.forYou];
+
+  String currentTopBar = Strings.forYou;
 
   int currentIndex = 0;
 
@@ -67,6 +86,11 @@ class HomeController extends GetxController with AppVideoControllerMixin, Widget
     super.onClose();
   }
 
+  void switchTopBar(String tab) {
+    currentTopBar = tab;
+    update([updateTopBar]);
+  }
+
   /// 可见变化后-设置播放or暂停
   void setPlayOrPause(bool isPlay) {
     if (isVisible && isPlay) {
@@ -85,83 +109,83 @@ class HomeController extends GetxController with AppVideoControllerMixin, Widget
 
   /// 滑动监听
   void onPageChanged(int index) {
-    // final previousIndex = currentIndex;
-    // currentIndex = index;
-    //
-    // if (currentIndex > previousIndex) {
-    //   playNext(index);
-    // } else {
-    //   playPrevious(index);
-    // }
-    //
-    // playRecord();
+    final previousIndex = currentIndex;
+    currentIndex = index;
+
+    if (currentIndex > previousIndex) {
+      playNext(index);
+    } else {
+      playPrevious(index);
+    }
+
+    playRecord();
     // toggleIconAd();
-    // update([updatePageIndex]);
+    update([updatePageIndex]);
   }
 
   Future<void> reload() async {
-    // setloadType(AppLoadType.load);
+    setloadType(AppLoadType.load);
 
-    // await Future.delayed(const Duration(milliseconds: 300));
-    //
-    // getList();
-    // getIconAd();
+    await Future.delayed(const Duration(milliseconds: 300));
+
+    getList();
+    getIconAd();
   }
 
   Future<void> getList({bool isRefresh = true}) async {
-    // const String url = '/videoInfoRandom';
-    //
-    // if (isRefresh) {
-    //   page = 1;
-    //   isLast = false;
-    // }
-    //
-    // try {
-    //   final Map<String, dynamic> data = {
-    //     'page': page,
-    //     'limit': 20,
-    //   };
-    //
-    //   final Map<String, dynamic> json = await AppHttp.post(
-    //     url,
-    //     data: data,
-    //     cancelToken: cancelToken,
-    //   );
-    //
-    //   print(json);
-    //
-    //   final VideoModel res = VideoModel.fromJson(json);
-    //
-    //   if (res.message.code == '200') {
-    //     if (isRefresh) {
-    //       list = res.data.list;
-    //       await initVideoController();
-    //     } else {
-    //       final latestIndex = list.length;
-    //       list.addAll(res.data.list);
-    //       await createControllerAtIndex(latestIndex);
-    //     }
-    //
-    //     if (res.data.isLastPage) {
-    //       isLast = true;
-    //     } else {
-    //       page++;
-    //     }
-    //
-    //     if (loadType == AppLoadType.success) {
-    //       update([updateList]);
-    //     } else {
-    //       setloadType(AppLoadType.success);
-    //     }
-    //   }
-    // } catch (e, t) {
-    //   setloadType(AppLoadType.error);
-    //   RcReport.modelError(
-    //     url: url,
-    //     e: e,
-    //     t: t,
-    //   );
-    // }
+    const String url = '/videoInfoRandom';
+
+    if (isRefresh) {
+      page = 1;
+      isLast = false;
+    }
+
+    try {
+      final Map<String, dynamic> data = {
+        'pageNumber': page,
+        'pageSize': 10,
+      };
+
+      final Map<String, dynamic> json = await AppHttp.post(
+        url,
+        data: data,
+        cancelToken: cancelToken,
+      );
+
+      print(json);
+
+      final VideoModel res = VideoModel.fromJson(json);
+
+      if (res.message.code == '200') {
+        if (isRefresh) {
+          list = res.data.list;
+          await initVideoController();
+        } else {
+          final latestIndex = list.length;
+          list.addAll(res.data.list);
+          await createControllerAtIndex(latestIndex);
+        }
+
+        if (res.data.isLastPage) {
+          isLast = true;
+        } else {
+          page++;
+        }
+
+        if (loadType == AppLoadType.success) {
+          update([updateList]);
+        } else {
+          setloadType(AppLoadType.success);
+        }
+      }
+    } catch (e, t) {
+      setloadType(AppLoadType.error);
+      AppReport.modelError(
+        url: url,
+        e: e,
+        t: t,
+      );
+    }
   }
 
   /// 视频点赞

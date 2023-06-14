@@ -4,6 +4,7 @@
 * @description: 
 */
 import 'package:get/get.dart';
+import 'package:zuzu/binding/index_binding.dart';
 import 'routes.dart';
 
 import '../binding/splash_binding.dart';
@@ -15,7 +16,7 @@ import '../views/lets_in/sign_up_screen.dart';
 import '../views/reset_password/select_methods_screen.dart';
 import '../views/reset_password/type_otp_screen.dart';
 import '../views/reset_password/create_password_screen.dart';
-import '../views/home/home_screen.dart';
+import '../views/index/index_screen.dart';
 
 class Pages {
   static var list = [
@@ -53,8 +54,11 @@ class Pages {
       page: () => CreatePasswordScreen(),
     ),
     GetPage(
-      name: Routes.homeScreen,
-      page: () => HomeScreen(),
+      name: Routes.indexScreen,
+      page: () => const IndexScreen(),
+      bindings: [
+        IndexBinding(),
+      ],
     ),
   ];
 }

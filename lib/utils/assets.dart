@@ -7,6 +7,11 @@
 class Assets {
   static const String logoSVG = 'assets/logo/logo.svg';
 
+  static const String homeSVG = 'assets/icons/Bold/Home.svg';
+  static const String discoverySVG = 'assets/icons/Light-Border/Discovery.svg';
+  static const String chatSVG = 'assets/icons/Light-Border/Chat.svg';
+  static const String profileSVG = 'assets/icons/Light-Border/Profile.svg';
+
   static const String onBoardingImage1 = 'assets/on_boarding_images/on-boarding-1.svg';
   static const String onBoardingImage2 = 'assets/on_boarding_images/on-boarding-2.svg';
   static const String onBoardingImage3 = 'assets/on_boarding_images/on-boarding-3.svg';
@@ -26,5 +31,13 @@ class Assets {
   static const String message = 'assets/icons/Bold/Message.svg';
   static const String lock = 'assets/icons/Bold/Lock.svg';
   static const String forget = 'assets/images/forget.svg';
+
+  static const String live = 'assets/icons/Additional/Live.svg';
+  static const String musicSong = 'assets/icons/Additional/Music Song.svg';
+  static const String search = 'assets/icons/Light-Border/Search.svg';
+  static const String reportFlag = 'assets/icons/Additional/Report Flag.svg';
+  static const String heart = 'assets/icons/Bold/Heart.svg';
+  static const String bookmark = 'assets/icons/Bold/Bookmark.svg';
+  static const String shareForward = 'assets/icons/Additional/Share forward.svg';
 
 }

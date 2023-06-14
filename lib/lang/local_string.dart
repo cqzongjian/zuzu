@@ -47,6 +47,13 @@ class LocalString extends Translations {
       Strings.createYourNewPassword: Chinese.createYourNewPassword,
       Strings.congratulations: Chinese.congratulations,
       Strings.yourAccountIsReadyToUse: Chinese.yourAccountIsReadyToUse,
+      Strings.home: Chinese.home,
+      Strings.discover: Chinese.discover,
+      Strings.inbox: Chinese.inbox,
+      Strings.profile: Chinese.profile,
+      Strings.following: Chinese.following,
+      Strings.friends: Chinese.friends,
+      Strings.forYou: Chinese.forYou,
 },
     'en_US': {
       Strings.appName: English.appName,
@@ -83,6 +90,13 @@ class LocalString extends Translations {
       Strings.createYourNewPassword: English.createYourNewPassword,
       Strings.congratulations: English.congratulations,
       Strings.yourAccountIsReadyToUse: English.yourAccountIsReadyToUse,
+      Strings.home: English.home,
+      Strings.discover: English.discover,
+      Strings.inbox: English.inbox,
+      Strings.profile: English.profile,
+      Strings.following: English.following,
+      Strings.friends: English.friends,
+      Strings.forYou: English.forYou,
     }
   };
 

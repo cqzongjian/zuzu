@@ -102,7 +102,7 @@ class SignUpScreen extends StatelessWidget {
                         color: AppColors.primaryColor
                     ),
                     recognizer: TapGestureRecognizer()
-                      ..onTap = () => Get.offAndToNamed(Routes.homeScreen),
+                      ..onTap = () => Get.offAndToNamed(Routes.indexScreen),
                   ),
                 ]),
               ),

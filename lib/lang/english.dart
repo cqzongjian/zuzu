@@ -40,5 +40,11 @@ class English {
   static const String createYourNewPassword = "Create Your New Password";
   static const String congratulations = "Congratulations!";
   static const String yourAccountIsReadyToUse = "Your account is ready to use. You will be redirected to the Home page in a few seconds..";
-
+  static const String home = "Home";
+  static const String discover = "Discover";
+  static const String inbox = "Inbox";
+  static const String profile = "Profile";
+  static const String following = "Following";
+  static const String friends = "Friends";
+  static const String forYou = "For You";
 }

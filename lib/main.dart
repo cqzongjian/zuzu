@@ -1,3 +1,5 @@
+import 'package:zuzu/configs/index.dart';
+import 'package:zuzu/http/index.dart';
 import 'package:zuzu/lang/local_string.dart';
 import 'package:zuzu/routes/pages.dart';
 import 'package:zuzu/routes/routes.dart';
@@ -6,9 +8,41 @@ import 'package:zuzu/utils/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:zuzu/widgets/app_report.dart';
+import 'package:zuzu/widgets/app_tag.dart';
+import 'package:zuzu/widgets/app_toast.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+
+  AppTag.initTag();
+
+  AppHttp.init(
+    options: BaseOptions(
+      baseUrl: AppConfigs.apiUrl,
+      headers: {'Accept': 'application/json'},
+      validateStatus: (statusCode) {
+        final codes = [100, 200, 400, 405, 500];
+
+        return codes.contains(statusCode);
+      },
+    ),
+    onRequest: (options, handler) async {
+      // final token = await RcStorage.getValue(RcStorageKey.token);
+      //
+      // options.headers.addAll({
+      //   'token': token,
+      // });
+
+      return handler.next(options);
+    },
+  );
+
+  AppReport.init(
+    dsn: AppConfigs.dsn,
+    appRunner: () => runApp(const MyApp()),
+  );
+
+  // runApp(const MyApp());
 }
 
 // This widget is the root of your application.
@@ -32,6 +66,7 @@ class MyApp extends StatelessWidget {
         locale: const Locale('zh', 'CN'),
         builder: (context, widget) {
           ScreenUtil.init(context);
+          AppToast.init(() => Get.overlayContext!);
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
             child: widget!,
