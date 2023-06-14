@@ -48,6 +48,11 @@ class AppBottomBar extends StatelessWidget {
               activeIcon: IconWidget(Assets.discoverySVG, active: true,),
             ),
             BottomNavigationBarItem(
+              label: '',
+              icon: IconWidget(Assets.plusSVG),
+              activeIcon: IconWidget(Assets.plusSVG),
+            ),
+            BottomNavigationBarItem(
               label: Strings.inbox,
               icon: IconWidget(Assets.chatSVG),
               activeIcon: IconWidget(Assets.chatSVG, active: true,),

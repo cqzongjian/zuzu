@@ -9,6 +9,7 @@ class Assets {
 
   static const String homeSVG = 'assets/icons/Bold/Home.svg';
   static const String discoverySVG = 'assets/icons/Light-Border/Discovery.svg';
+  static const String plusSVG = 'assets/icons/Curved/Plus.svg';
   static const String chatSVG = 'assets/icons/Light-Border/Chat.svg';
   static const String profileSVG = 'assets/icons/Light-Border/Profile.svg';
 

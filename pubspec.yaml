@@ -49,6 +49,7 @@ flutter:
     - assets/icons/Bold/
     - assets/icons/Light-Border/
     - assets/icons/Light-Outline/
+    - assets/icons/Curved/
     - assets/images/
   uses-material-design: true
 

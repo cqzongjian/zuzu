@@ -57,9 +57,11 @@ class IndexController extends GetxController {
         _showPage1 = true;
         break;
       case 2:
-        _showPage2 = true;
         break;
       case 3:
+        _showPage2 = true;
+        break;
+      case 4:
         _showPage3 = true;
         // AppUserController.to.getUserInfo();
         break;
