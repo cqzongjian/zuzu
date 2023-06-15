@@ -48,5 +48,21 @@ class Chinese {
   static const String following = "Following";
   static const String friends = "Friends";
   static const String forYou = "For You";
+  static const String settings = "settings";
+  static const String manageAccount = "Manage Account";
+  static const String privacy = "Privacy";
+  static const String security = "Security";
+  static const String qrCode = "QR Code";
+  static const String language = "Language";
+  static const String darkMode = "Dark Mode";
+  static const String contentPreferences = "Content Preferences";
+  static const String ads = "Ads";
+  static const String reportAProblem = "Report a Problem";
+  static const String helpCenter = "Help Center";
+  static const String safetyCenter = "Safety Center";
+  static const String communityGuidelines = "Community Guidelines";
+  static const String termsOfServices = "Terms of Services";
+  static const String privacyPolicy = "Privacy Policy";
+  static const String logout = "退出登录";
 
 }

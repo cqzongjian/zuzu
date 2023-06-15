@@ -5,6 +5,8 @@
 */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:zuzu/routes/routes.dart';
 import 'package:zuzu/themes/app_colors.dart';
 import 'package:zuzu/themes/app_text_styles.dart';
 import 'package:zuzu/utils/assets.dart';
@@ -31,7 +33,7 @@ class ProfileAppBar extends StatelessWidget {
       title: _buildTitle(),
       actions: [
         AppGestureDetector(
-          onTap: () {},
+          onTap: () => Get.toNamed(Routes.settingsScreen),
           child: const AppImage(Assets.setting, width: 28, height: 28, color: AppColors.white,),
         ),
         SizedBox(width: 15.w,),

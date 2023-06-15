@@ -46,6 +46,25 @@ class Assets {
   static const String addUser = 'assets/icons/Curved/Add User.svg';
   static const String setting = 'assets/icons/Curved/Setting.svg';
   static const String arrowDown2 = 'assets/icons/Light-Border/Arrow - Down 2.svg';
+  static const String arrowRight2 = 'assets/icons/Light-Border/Arrow - Right 2.svg';
+
+  // settings
+  static const String curvedProfile = 'assets/icons/Curved/Profile.svg';
+  static const String curvedLock = 'assets/icons/Curved/Lock.svg';
+  static const String curvedShieldDone = 'assets/icons/Curved/Shield Done.svg';
+  static const String lightOutlineScan = 'assets/icons/Light-Outline/Scan.svg';
+  static const String curvedMoreCircle = 'assets/icons/Curved/More Circle.svg';
+  static const String curvedShow = 'assets/icons/Curved/Show.svg';
+  static const String curvedVideo = 'assets/icons/Curved/Video.svg';
+  static const String curvedTicketStar = 'assets/icons/Curved/Ticket Star.svg';
+  static const String curvedEdit = 'assets/icons/Curved/Edit.svg';
+  static const String curvedInfoSquare = 'assets/icons/Curved/Info Square.svg';
+  static const String curvedTickSquare = 'assets/icons/Curved/Tick Square.svg';
+  static const String curved3User = 'assets/icons/Curved/3 User.svg';
+  static const String curvedPaper = 'assets/icons/Curved/Paper.svg';
+  static const String curvedDangerSquare = 'assets/icons/Curved/Danger Square.svg';
+  static const String curvedLogout = 'assets/icons/Curved/Logout.svg';
+
 
 
 }

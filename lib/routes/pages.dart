@@ -5,6 +5,7 @@
 */
 import 'package:get/get.dart';
 import 'package:zuzu/binding/index_binding.dart';
+import 'package:zuzu/views/settings/settings_screen.dart';
 import 'routes.dart';
 
 import '../binding/splash_binding.dart';
@@ -59,6 +60,10 @@ class Pages {
       bindings: [
         IndexBinding(),
       ],
+    ),
+    GetPage(
+      name: Routes.settingsScreen,
+      page: () => SettingsScreen(),
     ),
   ];
 }

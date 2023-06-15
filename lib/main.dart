@@ -1,4 +1,6 @@
 import 'package:zuzu/configs/index.dart';
+import 'package:zuzu/controller/app_settings_controller.dart';
+import 'package:zuzu/controller/app_version_controller.dart';
 import 'package:zuzu/http/index.dart';
 import 'package:zuzu/lang/local_string.dart';
 import 'package:zuzu/routes/pages.dart';
@@ -59,6 +61,7 @@ class MyApp extends StatelessWidget {
         theme: Themes.light,
         darkTheme: Themes.dark,
         themeMode: Themes().theme,
+        initialBinding: InitialBinding(),
         navigatorKey: Get.key,
         initialRoute: Routes.splashScreen,
         getPages: Pages.list,
@@ -74,5 +77,13 @@ class MyApp extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+class InitialBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.put<AppSettingsController>(AppSettingsController(), permanent: true);
+    Get.put<AppVersionController>(AppVersionController(), permanent: true);
   }
 }

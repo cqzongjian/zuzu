@@ -13,4 +13,5 @@ class Routes {
   static const String typeOTPScreen= '/typeOTPScreen';
   static const String createPasswordScreen= '/createPasswordScreen';
   static const String indexScreen= '/indexScreen';
+  static const String settingsScreen= '/settingsScreen';
 }
