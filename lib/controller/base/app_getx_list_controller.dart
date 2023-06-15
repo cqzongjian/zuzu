@@ -83,8 +83,6 @@ abstract class AppGetxListController<T> extends AppGetxController {
 
     try {
       final Map<String, dynamic> params = {
-        'page': page,
-        'limit': 10,
         "pageSize": 10,
         "pageNumber": page
       };

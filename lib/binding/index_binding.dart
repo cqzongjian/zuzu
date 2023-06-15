@@ -5,6 +5,7 @@
 */
 import 'package:get/get.dart';
 import 'package:zuzu/controller/home_controller.dart';
+import 'package:zuzu/controller/profile_controller.dart';
 import 'package:zuzu/widgets/app_tag.dart';
 
 import '../controller/index_controller.dart';
@@ -16,5 +17,6 @@ class IndexBinding extends Bindings {
     // Get.put(IndexController());
     Get.put<IndexController>(IndexController(), tag: AppTag.tag);
     Get.put<HomeController>(HomeController(), tag: AppTag.tag);
+    Get.put<ProfileController>(ProfileController(), tag: AppTag.tag);
   }
 }

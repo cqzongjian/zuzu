@@ -5,7 +5,10 @@
 */
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:zuzu/views/discovery/discovery_screen.dart';
 import 'package:zuzu/views/home/home_screen.dart';
+import 'package:zuzu/views/inbox/inbox_screen.dart';
+import 'package:zuzu/views/profile/profile_screen.dart';
 import 'package:zuzu/widgets/app_bottom_bar.dart';
 import 'package:zuzu/widgets/app_tag.dart';
 import 'package:zuzu/widgets/app_toast.dart';
@@ -19,9 +22,9 @@ class IndexController extends GetxController {
   // static const Widget bottomNavigationBar = AppBottomBar();
 
   final Widget _page0 = HomeScreen();
-  final Widget _page1 = HomeScreen();
-  final Widget _page2 = HomeScreen();
-  final Widget _page3 = HomeScreen();
+  final Widget _page1 = DiscoveryScreen();
+  final Widget _page2 = InboxScreen();
+  final Widget _page3 = ProfileScreen();
   final Widget _placeholder = const SizedBox();
 
   int tabIndex = 0;
@@ -35,6 +38,7 @@ class IndexController extends GetxController {
 
   Widget get page0 => _showPage0 ? _page0 : _placeholder;
   Widget get page1 => _showPage1 ? _page1 : _placeholder;
+  Widget get pageAdd => _placeholder;
   Widget get page2 => _showPage2 ? _page2 : _placeholder;
   Widget get page3 => _showPage3 ? _page3 : _placeholder;
   // Widget get page4 => _showPage4 ? _page4 : _placeholder;

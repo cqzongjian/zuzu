@@ -25,6 +25,7 @@ class IndexScreen extends StatelessWidget {
             children: [
               s.page0,
               s.page1,
+              s.pageAdd,
               s.page2,
               s.page3,
             ],

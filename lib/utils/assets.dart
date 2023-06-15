@@ -24,6 +24,8 @@ class Assets {
 
   static const String arrowLeft = 'assets/icons/Light-Outline/Arrow - Left.svg';
   static const String chat = 'assets/icons/Bold/Chat.svg';
+  static const String category = 'assets/icons/Bold/Category.svg';
+  static const String play = 'assets/icons/Bold/Play.svg';
   static const String createNewPassword = 'assets/images/Create New Password.svg';
   static const String createUser = 'assets/images/create_user.svg';
   static const String createPassword = 'assets/images/create_password.svg';
@@ -40,5 +42,10 @@ class Assets {
   static const String heart = 'assets/icons/Bold/Heart.svg';
   static const String bookmark = 'assets/icons/Bold/Bookmark.svg';
   static const String shareForward = 'assets/icons/Additional/Share forward.svg';
+
+  static const String addUser = 'assets/icons/Curved/Add User.svg';
+  static const String setting = 'assets/icons/Curved/Setting.svg';
+  static const String arrowDown2 = 'assets/icons/Light-Border/Arrow - Down 2.svg';
+
 
 }

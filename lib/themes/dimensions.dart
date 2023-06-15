@@ -6,7 +6,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dimensions {
-  static double defaultPaddingSize = 24.00.r;
+  static double defaultPaddingSize = 15.w;
 
   static double extraLargeTextSize = 22.00.sp;
 
