@@ -39,7 +39,7 @@ class ShortVideoRightBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right: 16.w,
+      right: 15.w,
       bottom: 100.h,
       child: Column(
         children: [

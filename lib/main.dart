@@ -1,6 +1,8 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:zuzu/configs/index.dart';
 import 'package:zuzu/controller/app_settings_controller.dart';
 import 'package:zuzu/controller/app_version_controller.dart';
+import 'package:zuzu/firebase_options.dart';
 import 'package:zuzu/http/index.dart';
 import 'package:zuzu/lang/local_string.dart';
 import 'package:zuzu/routes/pages.dart';
@@ -15,6 +17,10 @@ import 'package:zuzu/widgets/app_tag.dart';
 import 'package:zuzu/widgets/app_toast.dart';
 
 Future<void> main() async {
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   AppTag.initTag();
 

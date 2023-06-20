@@ -15,9 +15,11 @@ import 'package:zuzu/themes/dimensions.dart';
 import 'package:zuzu/themes/typography.dart';
 import 'package:zuzu/utils/assets.dart';
 import 'package:zuzu/utils/strings.dart';
+import 'package:zuzu/views/lets_in/widgets/google_button.dart';
 import 'package:zuzu/widgets/button.dart';
 import 'package:zuzu/widgets/login_button.dart';
 import 'package:zuzu/widgets/login_divider.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LetsInScreen extends StatelessWidget {
   LetsInScreen({Key? key}) : super(key: key);
@@ -51,13 +53,14 @@ class LetsInScreen extends StatelessWidget {
                   }
                 ),
                 SizedBox(height: 10.h,),
-                LoginButton(
-                  icon: Assets.google,
-                  text: Strings.continueWithGoogle.tr,
-                  onClick: () {
-
-                  }
-                ),
+                const GoogleButton(),
+                // LoginButton(
+                //   icon: Assets.google,
+                //   text: Strings.continueWithGoogle.tr,
+                //   onClick: () {
+                //
+                //   }
+                // ),
                 SizedBox(height: 10.h,),
                 LoginButton(
                   icon: Assets.apple,

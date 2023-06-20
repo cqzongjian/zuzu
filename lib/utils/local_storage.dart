@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
+const String showOnboardingKey = "showOnboardingKey";
 const String tokenKey = "tokenKey";
 const String isLoggedInKey = "isLoggedInKey";
 
@@ -72,5 +73,15 @@ class LocalStorage {
 
   static bool isLoggedIn() {
     return GetStorage().read(isLoggedInKey) ?? false;
+  }
+
+  static Future<void> setShowOnboarding(bool b) async {
+    final box = GetStorage();
+
+    await box.write(showOnboardingKey, b);
+  }
+
+  static bool showOnboarding() {
+    return GetStorage().read(showOnboardingKey) ?? true;
   }
 }

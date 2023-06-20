@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "464225649501",
+    "project_id": "zuzu-e007e",
+    "storage_bucket": "zuzu-e007e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464225649501:android:171a7648772afe2c231eb4",
+        "android_client_info": {
+          "package_name": "com.example.zuzu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464225649501-s0bilc9e6ptoj71rrk516an2mdi8itms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkh_6TsLWYjZed6khRRJ-Yst_LJlLN44c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464225649501-s0bilc9e6ptoj71rrk516an2mdi8itms.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "464225649501-f90clpkimqb20l7lp1hm655ic4ol58qa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dditzy.zuzu"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
