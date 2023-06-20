@@ -84,15 +84,15 @@ abstract class AppGetxListController<T> extends AppGetxController {
     try {
       final Map<String, dynamic> params = {
         "pageSize": 10,
-        "pageNumber": page
+        "pageNum": page
       };
 
       params.addAll(paramsExtend);
       print('=== 请求地址：$url');
       print('=== 请求参数：$params');
-      final Map<String, dynamic> json = await AppHttp.post(
+      final Map<String, dynamic> json = await AppHttp.get(
         url,
-        data: params,
+        params: params,
         isPrint: isPrint,
         cancelToken: cancelToken,
       );
@@ -100,7 +100,7 @@ abstract class AppGetxListController<T> extends AppGetxController {
       print('=== 请求响应：$json');
       final ResponseList<T> res = fromJson(json);
 
-      if (res.code == "200") {
+      if (res.code == 200) {
         list.addAll(res.list);
 
         if (res.isLast) {
@@ -138,7 +138,7 @@ class ResponseList<T> {
     required this.isLast,
   });
 
-  final String code;
+  final int code;
   final bool isLast;
   final List<T> list;
 }

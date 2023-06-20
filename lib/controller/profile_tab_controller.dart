@@ -4,6 +4,7 @@
 * @description: 
 */
 import 'package:zuzu/controller/base/app_getx_list_controller.dart';
+import 'package:zuzu/model/resp_model.dart';
 import 'package:zuzu/model/video_model.dart';
 
 class ProfileTabController extends AppGetxListController<VideoData> {
@@ -36,7 +37,7 @@ class ProfileTabController extends AppGetxListController<VideoData> {
   }
 
   @override
-  String get url => '/videoInfoRandom';
+  String get url => '/vlog/indexList';
 
   void onSearch() {
     reload();

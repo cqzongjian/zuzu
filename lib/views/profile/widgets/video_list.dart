@@ -42,10 +42,10 @@ class VideoList extends StatelessWidget {
               final data = s.list[index];
 
               return VideoCover(
-                id: data.id,
-                cover: data.thumb,
-                videoUrl: data.videoUrl,
-                count: data.collect.toString(),
+                id: data.vlogId,
+                cover: data.cover,
+                videoUrl: data.url,
+                count: data.commentsCount.toString()
               );
             },
             onLoad: () => s.getList(isRefresh: false),

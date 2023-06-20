@@ -6,15 +6,15 @@
 
 class Message {
   Message({
-    required this.msg,
+    required this.message,
     required this.code,
   });
 
-  final String msg;
-  final String code;
+  final String message;
+  final int code;
 
   factory Message.fromJson(Map<String, dynamic> json) => Message(
-        msg: json['msg'] ?? '',
-        code: json['code'] ?? '400',
-      );
+    message: json['message'] ?? '',
+    code: json['code'] ?? 400,
+  );
 }

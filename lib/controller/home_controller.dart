@@ -52,7 +52,7 @@ class HomeController extends AppGetxController with AppVideoControllerMixin, Wid
   // CarouselData get adData => iconAd.isNotEmpty ? iconAd[adIndex] : CarouselData.init();
 
   @override
-  List<VideoUrl> get urls => list.map((e) => VideoUrl(id: e.id, url: e.videoUrl)).toList();
+  List<VideoUrl> get urls => list.map((e) => VideoUrl(id: e.vlogId, url: e.url)).toList();
 
   @override
   void onInit() {
@@ -133,7 +133,7 @@ class HomeController extends AppGetxController with AppVideoControllerMixin, Wid
   }
 
   Future<void> getList({bool isRefresh = true}) async {
-    const String url = '/videoInfoRandom';
+    const String url = '/vlog/indexList';
 
     if (isRefresh) {
       page = 1;
@@ -141,14 +141,14 @@ class HomeController extends AppGetxController with AppVideoControllerMixin, Wid
     }
 
     try {
-      final Map<String, dynamic> data = {
-        'pageNumber': page,
+      final Map<String, dynamic> params = {
+        'pageNum': page,
         'pageSize': 10,
       };
 
-      final Map<String, dynamic> json = await AppHttp.post(
+      final Map<String, dynamic> json = await AppHttp.get(
         url,
-        data: data,
+        params: params,
         cancelToken: cancelToken,
       );
 
@@ -156,7 +156,7 @@ class HomeController extends AppGetxController with AppVideoControllerMixin, Wid
 
       final VideoModel res = VideoModel.fromJson(json);
 
-      if (res.message.code == '200') {
+      if (res.message.code == 200) {
         if (isRefresh) {
           list = res.data.list;
           await initVideoController();
@@ -189,12 +189,12 @@ class HomeController extends AppGetxController with AppVideoControllerMixin, Wid
   }
 
   /// 视频点赞
-  Future<void> onLike(int index, int id) async {
+  Future<void> onLike(int index, String id) async {
 
   }
 
   /// 视频取消点赞
-  Future<void> offLike(int index, int id) async {
+  Future<void> offLike(int index, String id) async {
 
   }
 
@@ -209,7 +209,7 @@ class HomeController extends AppGetxController with AppVideoControllerMixin, Wid
   }
 
   /// 收藏
-  Future<void> changeCollect(int index, int id) async {
+  Future<void> changeCollect(int index, String id) async {
 
   }
 

@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
           onPageChanged: s.onPageChanged,
           itemBuilder: (_, int index) {
             final data = s.list[index];
-            final controller = s.singleController(id: data.id, index: index);
+            final controller = s.singleController(id: data.vlogId, index: index);
 
             return VideoPage(
               index: index,

@@ -23,7 +23,7 @@ class VideoCover extends StatelessWidget {
     this.isReset = false,
   }) : super(key: key);
 
-  final int id;
+  final String id;
   final String cover;
   final String count;
   final String videoUrl;

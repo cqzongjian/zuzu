@@ -9,6 +9,6 @@ class VideoParams {
     required this.url
   });
 
-  final int id;
+  final String id;
   final String url;
 }

@@ -145,7 +145,7 @@ mixin AppVideoControllerMixin {
 
   /// 获取指定控制器
   VideoPlayerController singleController({
-    required int id,
+    required String id,
     required int index,
   }) {
     final String key = '$index-id:$id';
@@ -160,6 +160,6 @@ class VideoUrl {
     required this.url,
   });
 
-  final int id;
+  final String id;
   final String url;
 }

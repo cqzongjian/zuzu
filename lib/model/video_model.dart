@@ -15,7 +15,7 @@ class VideoModel {
   final Message message;
 
   factory VideoModel.fromJson(Map<String, dynamic> json) => VideoModel(
-    message: Message.fromJson(json["message"]),
+    message: Message.fromJson(json),
     data: json["data"] == null ? Data(isLastPage: true, list: []) : Data.fromJson(json["data"]),
   );
 }
@@ -30,44 +30,56 @@ class Data {
   final List<VideoData> list;
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
-    isLastPage: json["isLastPage"] ?? true,
-    list: json["list"] == null ? [] : List<VideoData>.from(json["list"].map((x) => VideoData.fromJson(x))),
+    isLastPage: json["current"] == json["pages"],
+    list: json["records"] == null ? [] : List<VideoData>.from(json["records"].map((x) => VideoData.fromJson(x))),
   );
 }
 
 class VideoData {
   VideoData({
-    required this.id,
+    required this.vlogId,
+    required this.vloggerId,
+    required this.vloggerName,
+    required this.vloggerFace,
     required this.like,
     required this.likeNum,
     required this.shareNum,
-    required this.thumb,
+    required this.cover,
     required this.title,
-    required this.videoUrl,
+    required this.url,
     required this.collect,
     required this.collectNum,
+    required this.commentsCount,
   });
 
-  final int id;
+  final String vlogId;
+  final String vloggerId;
+  final String vloggerName;
+  final String vloggerFace;
   bool like;
   int likeNum;
   final int shareNum;
-  final String thumb;
+  final String cover;
   final String title;
-  final String videoUrl;
+  final String url;
   bool collect;
   int collectNum;
+  int commentsCount;
 
 
   factory VideoData.fromJson(Map<String, dynamic> json) => VideoData(
-    id: json["id"],
-    like: json["like"],
-    likeNum: json["likeNum"],
-    shareNum: json["shareNum"],
-    thumb: json["thumb"],
+    vlogId: json["vlogId"],
+    vloggerId: json["vloggerId"],
+    vloggerName: json["vloggerName"],
+    vloggerFace: json["vloggerFace"],
+    like: json["like"] ?? false,
+    likeNum: json["likeNum"] ?? 0,
+    shareNum: json["shareNum"] ?? 0,
+    cover: json["cover"],
     title: json["title"],
-    videoUrl: json["videoUrl"],
-    collect: json["collect"],
+    url: json["url"],
+    collect: json["collect"] ?? false,
     collectNum: json["collectNum"] ?? 0,
+    commentsCount: json["commentsCount"] ?? 0,
   );
 }

@@ -23,7 +23,7 @@ class VideoPage extends StatelessWidget {
   final int index;
   final VideoPlayerController controller;
 
-  String get updateLike => 'like-${data.id}';
+  String get updateLike => 'like-${data.vlogId}';
   VideoData get data => HomeController.to.list.elementAt(index);
 
   @override
@@ -33,6 +33,8 @@ class VideoPage extends StatelessWidget {
         ShortVideoPlayer(controller),
         ShortVideoTitle(
           title: data.title,
+          vloggerName: data.vloggerName,
+          vloggerFace: data.vloggerFace,
         ),
         _buildRight(),
       ],
@@ -53,11 +55,11 @@ class VideoPage extends StatelessWidget {
               isLike: data.like,
               shareCount: data.shareNum.toString(),
               likeCount: data.likeNum.toString(),
-              likeOnTap: () => s.onLike(index, data.id),
-              likeOffTap: () => s.offLike(index, data.id),
+              likeOnTap: () => s.onLike(index, data.vlogId),
+              likeOffTap: () => s.offLike(index, data.vlogId),
               isCollect: data.collect,
               collectNum: data.collectNum.toString(),
-              collectTap: () => s.changeCollect(index, data.id),
+              collectTap: () => s.changeCollect(index, data.vlogId),
             );
           },
         );

@@ -30,7 +30,8 @@ class AppConfigs {
 enum Env {
   /// 开发环境
   develop(
-    apiUrl: 'https://mock.apifox.cn/m1/2875643-0-default',
+    // apiUrl: 'https://mock.apifox.cn/m1/2875643-0-default',
+    apiUrl: 'http://192.168.10.12:8099'
   ),
 
   /// 内测环境

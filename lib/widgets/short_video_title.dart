@@ -15,14 +15,18 @@ class ShortVideoTitle extends StatelessWidget {
   const ShortVideoTitle({
     Key? key,
     required this.title,
+    required this.vloggerName,
+    required this.vloggerFace,
   }) : super(key: key);
 
   final String title;
+  final String vloggerName;
+  final String vloggerFace;
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: 30.w,
+      left: 15.w,
       // right: 160.w,
       bottom: 50.h,
       child: Column(
@@ -34,8 +38,7 @@ class ShortVideoTitle extends StatelessWidget {
               Stack(
                 children: [
                   AppImage(
-                    "https://cqsmt-img.oss-cn-chengdu.aliyuncs.com/Upload/Image/Icon/2208180511095175506.jpg",
-                    // "https://images.unsplash.com/photo-1532264523420-881a47db012d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9",
+                    vloggerFace,
                     width: 60.0,
                     height: 60.0,
                     radius: 30.0,
@@ -61,8 +64,9 @@ class ShortVideoTitle extends StatelessWidget {
               ),
               SizedBox(width: 10.w,),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Jenny Wilson", style: AppTextStyles.heading6?.copyWith(
+                  Text(vloggerName, style: AppTextStyles.heading6?.copyWith(
                       fontWeight: FontWeight.w700
                   ),),
                   SizedBox(height: 3.h,),
