@@ -1,59 +1,90 @@
+/*
+* @overview:
+* @Author: rcc
+* @Date: 2022-08-03 22:07:56
+*/
+
+import 'message_model.dart';
+
 class UserModel {
   UserModel({
-    this.isPremium = false,
-    this.textCount = 0,
-    this.imageCount = 0,
-    this.contentCount = 0,
-    this.hashTagCount = 0,
-    this.date = 0,
-    required this.isActive,
-    required this.email,
-    required this.imageUrl,
-    required this.uniqueId,
-    required this.name,
-    required this.phoneNumber,
+    required this.data,
+    required this.message,
   });
 
-  bool isActive;
-  bool isPremium;
-  String email;
-  String imageUrl;
-  String uniqueId;
-  String name;
-  String phoneNumber;
-  int textCount;
-  int imageCount;
-  int contentCount;
-  int hashTagCount;
-  int date;
+  final UserData data;
+  final Message message;
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-        isPremium: json["isPremium"],
-        isActive: json["isActive"],
-        email: json["email"],
-        imageUrl: json["image_url"],
-        uniqueId: json["unique_id"],
-        name: json["name"],
-        phoneNumber: json["phoneNumber"],
-        textCount: json["textCount"],
-        imageCount: json["imageCount"],
-        contentCount: json["contentCount"],
-        hashTagCount: json["hashTagCount"],
-        date: json["date"],
-      );
+    data: json['data'] == null ? UserData.init() : UserData.fromJson(json['data']),
+    message: Message.fromJson(json['message']),
+  );
+}
 
-  Map<String, dynamic> toJson() => {
-        "isPremium": isPremium,
-        "isActive": isActive,
-        "email": email,
-        "image_url": imageUrl,
-        "unique_id": uniqueId,
-        "name": name,
-        "phoneNumber": phoneNumber,
-        "textCount": textCount,
-        "imageCount": imageCount,
-        "hashTagCount": hashTagCount,
-        "contentCount": contentCount,
-        "date": date,
-      };
+class UserData {
+  UserData({
+    required this.avatar,
+    required this.codeCount,
+    required this.collectCount,
+    required this.email,
+    required this.id,
+    required this.phone,
+    required this.sign,
+    required this.username,
+    required this.nickname,
+    required this.refcode,
+    required this.gold,
+    required this.myFansCount,
+    required this.myFollowCount,
+    required this.myLikeCount,
+  });
+
+  final String avatar;
+  final int codeCount;
+  final int collectCount;
+  final String email;
+  final String id;
+  final int gold;
+  final String phone;
+  final String sign;
+  final String username;
+  final String nickname;
+  final String refcode;
+  final String myFansCount;
+  final String myFollowCount;
+  final String myLikeCount;
+
+  factory UserData.init() => UserData(
+    avatar: '',
+    codeCount: 0,
+    collectCount: 0,
+    email: '',
+    id: '',
+    phone: '',
+    sign: '',
+    username: '',
+    nickname: '',
+    refcode: '',
+    gold: 0,
+    myFansCount: '0',
+    myFollowCount: '0',
+    myLikeCount: '0',
+  );
+
+  factory UserData.fromJson(Map<String, dynamic> json) => UserData(
+    avatar: json['face'] ?? '',
+    codeCount: json['codeCount'] ?? 0,
+    collectCount: json['collectCount'] ?? 0,
+    email: json['email'] ?? '',
+    id: json['id'] ?? 0,
+    gold: json['gold'] ?? 0,
+    phone: json['mobile'] ?? '',
+    sign: json['sign'] ?? '',
+    username: json['username'] ?? '',
+    nickname: json['nickname'] ?? '',
+    refcode: json['refcode'] ?? '',
+    myFansCount: json['myFansCount'] ?? '0',
+    myFollowCount: json['myFollowsCount'] ?? '0',
+    myLikeCount: json['totalLikeMeCount'] ?? '0',
+  );
 }

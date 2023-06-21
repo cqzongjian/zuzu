@@ -5,6 +5,7 @@
 */
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:zuzu/controller/settings_controller.dart';
 import 'package:zuzu/themes/app_colors.dart';
 import 'package:zuzu/utils/assets.dart';
 import 'package:zuzu/utils/strings.dart';
@@ -13,7 +14,9 @@ import 'package:zuzu/widgets/cell_widget.dart';
 import 'package:zuzu/widgets/switch_widget.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+  SettingsScreen({super.key});
+
+  final controller = Get.put(SettingsController());
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +53,12 @@ class SettingsScreen extends StatelessWidget {
             CellWidget(icon: Assets.curved3User, label: Strings.communityGuidelines.tr),
             CellWidget(icon: Assets.curvedPaper, label: Strings.termsOfServices.tr),
             CellWidget(icon: Assets.curvedDangerSquare, label: Strings.privacyPolicy.tr),
-            CellWidget(icon: Assets.curvedLogout, label: Strings.logout.tr, color: AppColors.primaryColor,),
+            CellWidget(
+              icon: Assets.curvedLogout,
+              label: Strings.logout.tr,
+              color: AppColors.primaryColor,
+              onClick: controller.logout,
+            ),
           ],
         ),
       ),

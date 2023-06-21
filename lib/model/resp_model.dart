@@ -13,13 +13,13 @@ class Resp<T> {
 
   final bool success;
   final String message;
-  final String code;
+  final int code;
   final T? data;
 
   factory Resp.fromJson(Map<String, dynamic> json) => Resp(
     success: json['success'] ?? false,
     message: json['message'] ?? '',
-    code: json['code'] ?? '400',
+    code: json['code'] ?? 400,
     data: json['data']
   );
 }

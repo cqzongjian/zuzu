@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:zuzu/configs/index.dart';
 import 'package:zuzu/controller/app_settings_controller.dart';
+import 'package:zuzu/controller/app_user_controller.dart';
 import 'package:zuzu/controller/app_version_controller.dart';
 import 'package:zuzu/firebase_options.dart';
 import 'package:zuzu/http/index.dart';
@@ -93,6 +94,7 @@ class MyApp extends StatelessWidget {
 class InitialBinding implements Bindings {
   @override
   void dependencies() {
+    Get.put<AppUserController>(AppUserController(), permanent: true);
     Get.put<AppSettingsController>(AppSettingsController(), permanent: true);
     Get.put<AppVersionController>(AppVersionController(), permanent: true);
   }

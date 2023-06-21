@@ -3,11 +3,13 @@
 * @createTime: 2023/5/26 13:55
 * @description: 
 */
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-const String showOnboardingKey = "showOnboardingKey";
+const String idKey = "idKey";
+const String isOnBoardDoneKey = "isOnBoardDoneKey";
 const String tokenKey = "tokenKey";
 const String isLoggedInKey = "isLoggedInKey";
 
@@ -65,6 +67,16 @@ class LocalStorage {
     return rtrn;
   }
 
+  static Future<void> saveId({required String id}) async {
+    final box = GetStorage();
+
+    await box.write(idKey, id);
+  }
+
+  static String? getId() {
+    return GetStorage().read(idKey);
+  }
+
   static Future<void> isLoginSuccess({required bool isLoggedIn}) async {
     final box = GetStorage();
 
@@ -75,13 +87,47 @@ class LocalStorage {
     return GetStorage().read(isLoggedInKey) ?? false;
   }
 
-  static Future<void> setShowOnboarding(bool b) async {
+  static Future<void> saveOnboardDoneOrNot(
+      {required bool isOnBoardDone}) async {
     final box = GetStorage();
 
-    await box.write(showOnboardingKey, b);
+    await box.write(isOnBoardDoneKey, isOnBoardDone);
   }
 
-  static bool showOnboarding() {
-    return GetStorage().read(showOnboardingKey) ?? true;
+  static bool isOnBoardDone() {
+    return GetStorage().read(isOnBoardDoneKey) ?? false;
+  }
+
+  static Future<void> logout() async {
+    final FirebaseAuth auth = FirebaseAuth.instance; // firebase instance/object
+    auth.signOut();
+
+
+    final box = GetStorage();
+
+    await box.remove(idKey);
+
+    // await box.remove(nameKey);
+    //
+    // await box.remove(emailKey);
+    //
+    // await box.remove(imageKey);
+
+    await box.remove(isLoggedInKey);
+
+    await box.remove(isOnBoardDoneKey);
+
+    // await box.remove(isFreeUserToken);
+    //
+    // await box.remove(date);
+    // await box.remove(imageCount);
+    // await box.remove(contentCount);
+    // await box.remove(hashTagCount);
+    // await box.remove(textCount);
+    // await box.remove(isFreeUserKey);
+    //
+    // await box.remove(isScheduleEmptyKey);
+    //
+    // await box.remove(subscriptionDate);
   }
 }

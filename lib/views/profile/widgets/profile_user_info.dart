@@ -5,6 +5,8 @@
 */
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:zuzu/controller/app_user_controller.dart';
 import 'package:zuzu/themes/app_colors.dart';
 import 'package:zuzu/themes/app_text_styles.dart';
 import 'package:zuzu/themes/dimensions.dart';
@@ -24,35 +26,39 @@ class ProfileUserInfo extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Padding(
         padding: EdgeInsets.all(Dimensions.defaultPaddingSize),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _buildAvatar(),
-            Text("@andrew_aisnley", style: AppTextStyles.heading5?.copyWith(
-              fontWeight: FontWeight.w700,
-            ),),
-            Text("Designer & Videographer", style: AppTextStyles.bodyMediumMedium?.copyWith(
-                height: 2
-            ),),
-            _buildNumRow(context),
+        child: GetBuilder<AppUserController>(
+          id: AppUserController.updateUserInfo,
+          builder: (s) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _buildAvatar(s.avatar),
+                Text(s.nickname, style: AppTextStyles.heading5?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),),
+                Text("Designer & Videographer", style: AppTextStyles.bodyMediumMedium?.copyWith(
+                    height: 2
+                ),),
+                _buildNumRow(context),
 
-            _buildEditProfileButton(),
-          ],
+                _buildEditProfileButton(),
+              ],
+            );
+          },
         ),
       ),
     );
   }
 
-  Widget _buildAvatar() {
+  Widget _buildAvatar(String url) {
     return Container(
       alignment: Alignment.center,
       margin: EdgeInsets.only(top: 10.h, bottom: 10.h),
       child: Stack(
         children: [
           AppImage(
-            "https://cqsmt-img.oss-cn-chengdu.aliyuncs.com/Upload/Image/Icon/2208180511095175506.jpg",
-            // "https://images.unsplash.com/photo-1532264523420-881a47db012d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9",
+            url,
             width: 120.0,
             height: 120.0,
             radius: 60.0,

@@ -34,12 +34,11 @@ class SplashController extends GetxController {
 
   _goToScreen() async {
     Timer(const Duration(seconds: 3), () {
-      LocalStorage.showOnboarding()
-        ? Get.offAndToNamed(Routes.onBoardingScreen)
-        : Get.offAndToNamed(Routes.letsInScreen);
-      // LocalStorage.isLoggedIn()
-      //     ? Get.offAndToNamed(Routes.homeScreen)
-      //     : Get.offAndToNamed(Routes.loginScreen);
+      LocalStorage.isOnBoardDone()
+        ? (LocalStorage.isLoggedIn()
+          ? Get.offAndToNamed(Routes.indexScreen)
+          : Get.offAndToNamed(Routes.letsInScreen))
+        : Get.offAndToNamed(Routes.onBoardingScreen);
     });
   }
 }

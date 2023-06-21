@@ -18,6 +18,7 @@ class CellWidget extends StatelessWidget {
     this.color,
     this.value,
     this.child,
+    this.onClick,
   });
 
   final String icon;
@@ -25,12 +26,13 @@ class CellWidget extends StatelessWidget {
   final Color? color;
   final String? value;
   final Widget? child;
+  final Function()? onClick;
 
   @override
   Widget build(BuildContext context) {
     Color color2 = color ?? (Get.isDarkMode ? AppColors.white : AppColors.greyscale900);
     return InkWell(
-      onTap: () {},
+      onTap: onClick,
       child: Container(
         height: 40.h,
         padding: EdgeInsets.symmetric(horizontal: 15.w),

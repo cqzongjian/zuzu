@@ -69,7 +69,7 @@ class SignInScreen extends StatelessWidget {
               ),
 
               Button(
-                onClick: () => Get.toNamed(Routes.indexScreen),
+                onClick: () => Get.offAndToNamed(Routes.indexScreen),
                 text: Strings.signIn.tr,
               ),
 
