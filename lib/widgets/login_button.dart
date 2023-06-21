@@ -36,6 +36,7 @@ class LoginButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.sp)
       ),
       child: InkWell(
+        onTap: onClick,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

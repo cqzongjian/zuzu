@@ -43,7 +43,6 @@ class _GoogleButtonState extends State<GoogleButton> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     _googleSignIn.onCurrentUserChanged
@@ -94,6 +93,7 @@ class _GoogleButtonState extends State<GoogleButton> {
   // On the web, the on-click handler of the Sign In button is owned by the JS
   // SDK, so this method can be considered mobile only.
   Future<void> _handleSignIn() async {
+    print("ahahaha");
     try {
       await _googleSignIn.signIn();
     } catch (error) {

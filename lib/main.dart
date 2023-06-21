@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:zuzu/configs/index.dart';
 import 'package:zuzu/controller/app_settings_controller.dart';
 import 'package:zuzu/controller/app_version_controller.dart';
@@ -17,6 +18,9 @@ import 'package:zuzu/widgets/app_tag.dart';
 import 'package:zuzu/widgets/app_toast.dart';
 
 Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

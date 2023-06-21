@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:zuzu/controller/lets_in_controller.dart';
 import 'package:zuzu/routes/routes.dart';
 import 'package:zuzu/themes/app_colors.dart';
 import 'package:zuzu/themes/app_text_styles.dart';
@@ -24,7 +25,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 class LetsInScreen extends StatelessWidget {
   LetsInScreen({Key? key}) : super(key: key);
 
-  // final controller = Get.put(OnBoardingController());
+  final controller = Get.put(LetsInController());
 
   @override
   Widget build(BuildContext context) {
@@ -53,14 +54,14 @@ class LetsInScreen extends StatelessWidget {
                   }
                 ),
                 SizedBox(height: 10.h,),
-                const GoogleButton(),
-                // LoginButton(
-                //   icon: Assets.google,
-                //   text: Strings.continueWithGoogle.tr,
-                //   onClick: () {
-                //
-                //   }
-                // ),
+                // const GoogleButton(),
+                LoginButton(
+                  icon: Assets.google,
+                  text: Strings.continueWithGoogle.tr,
+                  onClick: () {
+                    controller.signInWithGoogle(context);
+                  }
+                ),
                 SizedBox(height: 10.h,),
                 LoginButton(
                   icon: Assets.apple,
